@@ -35,7 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameText = "Gaurav Kolte";
     const taglineText = "Purdue Industrial Engineering | Incoming Tesla Intern";
 
+    async function typeWriter(element, text, speed = 40) {
+        // Create text span and cursor span
+        const textSpan = document.createElement('span');
+        const cursorSpan = document.createElement('span');
+        cursorSpan.classList.add('typed-cursor');
+        element.appendChild(textSpan);
+        element.appendChild(cursorSpan);
+
+        for (let i = 0; i < text.length; i++) {
+            textSpan.textContent += text.charAt(i);
+            // Slightly vary the speed for a more natural/polished feel
+            const varySpeed = speed + (Math.random() * 20 - 10);
+            await new Promise(resolve => setTimeout(resolve, varySpeed));
+        }
+        
+        // Keep cursor blinking for a moment after typing
+        await new Promise(resolve => setTimeout(resolve, 800));
+        cursorSpan.remove();
+    }
+
     async function runIntro() {
+        // Skip if not on index or already seen in session
         const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
         const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
 
@@ -45,39 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Lock scroll
+        // Lock scroll during intro
         body.style.overflow = 'hidden';
 
-        // Set Text immediately (but invisible due to CSS)
-        introName.textContent = nameText;
-        introTagline.textContent = taglineText;
+        // Wait a beat early on
+        await new Promise(r => setTimeout(r, 800));
 
-        // Start Sequence
-        await new Promise(r => setTimeout(r, 500));
+        // Type Name
+        await typeWriter(introName, nameText, 60);
+        await new Promise(r => setTimeout(r, 600));
+
+        // Type Tagline
+        await typeWriter(introTagline, taglineText, 40);
+        await new Promise(r => setTimeout(r, 1200));
+
+        // Fade out overlay elegantly
+        introOverlay.style.opacity = '0';
         
-        // Step 1: Reveal Elements
-        introOverlay.classList.add('reveal');
-
-        // Step 2: Hold for a premium moment
-        await new Promise(r => setTimeout(r, 2800));
-
-        // Step 3: Exit Intro
-        introOverlay.classList.add('fade-out');
-
-        // Step 4: Fade in content elegantly
+        // Start fading main content slightly before overlay is completely gone
         setTimeout(() => {
             if (mainContent) {
                 mainContent.style.opacity = '1';
-                mainContent.style.transition = 'opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                mainContent.style.transition = 'opacity 1.2s ease-in-out, transform 1.2s ease-out';
                 mainContent.style.transform = 'translateY(0)';
             }
-        }, 500);
+        }, 300);
 
         setTimeout(() => {
             introOverlay.style.display = 'none';
             body.style.overflow = '';
             sessionStorage.setItem('hasSeenIntro', 'true');
-        }, 2000);
+        }, 1200);
     }
 
     if (introOverlay) {
