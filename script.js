@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const introTagline = document.getElementById('intro-tagline');
     const mainContent = document.querySelector('main');
 
-    const nameText = "Gaurav Chandrakant Kolte";
+    const nameText = "Gaurav Kolte";
     const taglineText = "Purdue Industrial Engineering | Incoming Tesla Intern";
 
     async function typeWriter(element, text, speed = 40) {
