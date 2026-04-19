@@ -70,7 +70,50 @@ body {
     text-align: center;
     color: white;
     max-width: 80%;
+    position: relative;
+    z-index: 2;
 }
+
+/* Background Animated Icons */
+.intro-bg-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.intro-icon {
+    position: absolute;
+    color: var(--accent);
+    opacity: 0;
+    width: 6vw;
+    height: 6vw;
+    min-width: 40px;
+    min-height: 40px;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+    animation: icon-float 8s infinite ease-in-out;
+}
+
+.icon-gear { top: 15%; left: 10%; animation-delay: 0s; transform: rotate(15deg); }
+.icon-bolt { top: 65%; left: 15%; animation-delay: 2s; transform: rotate(-10deg); }
+.icon-chart { top: 20%; left: 80%; animation-delay: 4s; transform: rotate(5deg); }
+.icon-box { top: 70%; left: 75%; animation-delay: 6s; transform: rotate(-5deg); }
+
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); opacity: 0; }
+    10% { opacity: 0.15; }
+    50% { transform: translateY(-30px) rotate(calc(var(--rot, 0deg) + 10deg)); opacity: 0.25; }
+    90% { opacity: 0.15; }
+}
+
+.icon-gear { --rot: 15deg; }
+.icon-bolt { --rot: -10deg; }
+.icon-chart { --rot: 5deg; }
+.icon-box { --rot: -5deg; }
 
 #intro-name {
     font-size: clamp(2rem, 5vw, 3.5rem);

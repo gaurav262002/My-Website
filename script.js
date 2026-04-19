@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Type Tagline
         await typeWriter(introTagline, taglineText, 40);
-        await new Promise(r => setTimeout(r, 1200));
+        await new Promise(r => setTimeout(r, 1500)); // Give an extra beat for the icons to be seen
 
         // Fade out overlay elegantly
         introOverlay.style.opacity = '0';
