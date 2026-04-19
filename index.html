@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Kolte | Portfolio</title>
+    <meta name="description" content="Industrial Engineering graduate student at Purdue University passionate about data-driven problem solving.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Intro Overlay -->
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1 id="intro-name"></h1>
+            <p id="intro-tagline"></p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">GK</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-item active">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="projects.html" class="nav-item">Projects</a></li>
+                <li><a href="resume.html" class="nav-item">Resume</a></li>
+                <li>
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <div class="dark-mode-toggle"></div>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container animate-fade-in" style="opacity: 0;">
+        <div class="hero-content">
+            <img src="assets/profile.jpg" alt="Gaurav Kolte" class="profile-photo" onerror="this.src='https://picsum.photos/seed/gaurav/400/400'">
+            <div class="hero-text">
+                <div class="section-title">Industrial Engineering @ Purdue</div>
+                <h1>Gaurav Chandrakant Kolte</h1>
+                <div class="about-box">
+                    <p>I am a Master’s student at Purdue University specializing in bridging engineering and analytics to solve complex operational challenges. Incoming <strong>Tesla</strong> Intern for Summer 2026, focused on driving industrial excellence through data and optimization.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <div class="section-title">Strategic Areas of Focus</div>
+            <div class="card-grid">
+                <div class="project-card">
+                    <h3>Supply Chain & Tesla</h3>
+                    <p>Applying advanced optimization models to high-throughput manufacturing and ultra-efficient supply chain systems.</p>
+                    <div class="project-tags"><span>Industrial Engineering</span><span>Productivity</span></div>
+                </div>
+                <div class="project-card">
+                    <h3>Process Improvement</h3>
+                    <p>Using Lean Six Sigma and simulation tools to evaluate throughput and minimize waste in operational flows.</p>
+                    <div class="project-tags"><span>Lean</span><span>Simulation</span></div>
+                </div>
+                <div class="project-card">
+                    <h3>Operational Strategy</h3>
+                    <p>Designing future-ready manufacturing systems and factory layouts for impact and scalability.</p>
+                    <div class="project-tags"><span>Manufacturing</span><span>Systems</span></div>
+                </div>
+            </div>
+
+            <section class="footer-row">
+                <div>
+                    <div class="section-title">Institutional Highlights</div>
+                    <div class="info-grid">
+                        <div class="info-pill"><div><span class="pill-label">Institution</span><div class="pill-value">Purdue University</div></div></div>
+                        <div class="info-pill"><div><span class="pill-label">Program</span><div class="pill-value">Master of Science</div></div></div>
+                        <div class="info-pill"><div><span class="pill-label">Next Step</span><div class="pill-value">Tesla Intern</div></div></div>
+                        <div class="info-pill"><div><span class="pill-label">Focus</span><div class="pill-value">Optimization</div></div></div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 1rem;">
+                    <div class="btn-group">
+                        <a href="projects.html" class="btn btn-primary">View Projects</a>
+                        <a href="resume.html" class="btn btn-secondary">Get Resume</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Social Links -->
+    <footer class="social-footer">
+        <div class="container" style="padding: 0;">
+            <div class="social-links">
+                <a href="mailto:[ADD_YOUR_EMAIL_HERE]" class="social-icon" title="Email">@</a>
+                <a href="[ADD_YOUR_LINKEDIN_URL_HERE]" class="social-icon" target="_blank" title="LinkedIn">Li</a>
+                <a href="[ADD_YOUR_GITHUB_URL_HERE]" class="social-icon" target="_blank" title="GitHub">Gh</a>
+            </div>
+            <p>&copy; 2026 Gaurav Chandrakant Kolte. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

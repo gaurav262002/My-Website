@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Gaurav Kolte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">GK</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="projects.html" class="nav-item">Projects</a></li>
+                <li><a href="resume.html" class="nav-item active">Resume</a></li>
+                <li>
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                        <div class="dark-mode-toggle"></div>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container animate-fade-in">
+        <div class="main-content">
+            <section>
+                <div class="section-title">Credentials</div>
+                <div class="about-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <p>My professional background encompasses academic excellence at Purdue University and practical experience in industrial systems. Incoming Summer 2026 intern at <strong>Tesla</strong>.</p>
+                    <div class="resume-actions">
+                        <a href="assets/Gaurav_Kolte_Resume.pdf" class="btn btn-primary" download>Download PDF</a>
+                    </div>
+                </div>
+            </section>
+
+            <section style="flex-grow: 1; display: flex; flex-direction: column;">
+                <div class="section-title">Resume Viewer</div>
+                <div class="resume-viewer" style="flex-grow: 1; min-height: 800px;">
+                    <iframe src="assets/Gaurav_Kolte_Resume.pdf" width="100%" height="800px" style="border: none;">
+                        <p>It appears your browser doesn't support embedded PDFs. 
+                           <a href="assets/Gaurav_Kolte_Resume.pdf">Click here to download the PDF.</a>
+                        </p>
+                    </iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Social Links -->
+    <footer class="social-footer">
+        <div class="container" style="padding: 0;">
+            <div class="social-links">
+                <a href="mailto:[ADD_YOUR_EMAIL_HERE]" class="social-icon" title="Email">@</a>
+                <a href="[ADD_YOUR_LINKEDIN_URL_HERE]" class="social-icon" target="_blank" title="LinkedIn">Li</a>
+                <a href="[ADD_YOUR_GITHUB_URL_HERE]" class="social-icon" target="_blank" title="GitHub">Gh</a>
+            </div>
+            <p>&copy; 2026 Gaurav Chandrakant Kolte. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
