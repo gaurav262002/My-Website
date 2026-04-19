@@ -35,15 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameText = "Gaurav Kolte";
     const taglineText = "Purdue Industrial Engineering | Incoming Tesla Intern";
 
-    async function typeWriter(element, text, speed = 40) {
-        for (let i = 0; i < text.length; i++) {
-            element.innerHTML += text.charAt(i);
-            await new Promise(resolve => setTimeout(resolve, speed));
-        }
-    }
-
     async function runIntro() {
-        // Skip if not on index or already seen in session
         const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
         const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
 
@@ -53,29 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Lock scroll during intro
+        // Lock scroll
         body.style.overflow = 'hidden';
 
-        // Wait a beat
+        // Set Text immediately (but invisible due to CSS)
+        introName.textContent = nameText;
+        introTagline.textContent = taglineText;
+
+        // Start Sequence
         await new Promise(r => setTimeout(r, 500));
+        
+        // Step 1: Reveal Elements
+        introOverlay.classList.add('reveal');
 
-        // Type Name
-        await typeWriter(introName, nameText, 50);
-        await new Promise(r => setTimeout(r, 400));
+        // Step 2: Hold for a premium moment
+        await new Promise(r => setTimeout(r, 2800));
 
-        // Type Tagline
-        await typeWriter(introTagline, taglineText, 30);
-        await new Promise(r => setTimeout(r, 1000));
+        // Step 3: Exit Intro
+        introOverlay.classList.add('fade-out');
 
-        // Fade out overlay
-        introOverlay.style.opacity = '0';
+        // Step 4: Fade in content elegantly
+        setTimeout(() => {
+            if (mainContent) {
+                mainContent.style.opacity = '1';
+                mainContent.style.transition = 'opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                mainContent.style.transform = 'translateY(0)';
+            }
+        }, 500);
+
         setTimeout(() => {
             introOverlay.style.display = 'none';
             body.style.overflow = '';
-            // Fade in main content
-            mainContent.style.opacity = '1';
             sessionStorage.setItem('hasSeenIntro', 'true');
-        }, 1000);
+        }, 2000);
     }
 
     if (introOverlay) {
